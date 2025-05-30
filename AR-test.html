@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>简单AR导航前端</title>
+</head>
+<body>
+  <h1>用户列表</h1>
+  <ul id="users"></ul>
+
+  <h1>地图节点</h1>
+  <ul id="mapNodes"></ul>
+
+  <script>
+    const backendUrl = "http://localhost:8000"; // 改成你后端地址
+
+    fetch(backendUrl + "/users")
+      .then(res => res.json())
+      .then(users => {
+        const ul = document.getElementById("users");
+        users.forEach(u => {
+          const li = document.createElement("li");
+          li.textContent = u;
+          ul.appendChild(li);
+        });
+      });
+
+    fetch(backendUrl + "/map_nodes")
+      .then(res => res.json())
+      .then(nodes => {
+        const ul = document.getElementById("mapNodes");
+        nodes.forEach(n => {
+          const li = document.createElement("li");
+          li.textContent = n.name + " (Floor " + n.floor + ")";
+          ul.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
