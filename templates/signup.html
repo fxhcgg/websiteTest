@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup page</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Sign up</h1>
+    {% if show_alert %}
+    <script>
+        alert("Invalid registration code. Please try again.");
+    </script>
+    {% endif %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.register.label }}<br>
+            {{ form.register(size=32) }}<br>
+            {% for error in form.register.errors %}
+            {% endfor %}
+        </p>
+        <p>{{ form.submit }}</p>
+    </form>
+    {% endblock %}
+</body>
+
+</html>
