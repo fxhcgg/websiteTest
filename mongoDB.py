@@ -27,7 +27,3 @@ def find_tester(tester_name,password):
         'tester_name': tester_name, 
         'password': hash_obj.hexdigest()
     }) is not None
-
-
-for test in tester.find():
-    print(test)
