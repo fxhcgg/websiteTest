@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: indoor-navigation  # 自定义服务名
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app  # 匹配您的 app.py
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MONGO_URI
+        value: "mongodb+srv://connectionTest:1234@indoornavigation.3vebovy.mongodb.net/?retryWrites=true&w=majority&appName=IndoorNavigation"
+      - key: ALGORITHM
+        value: "sha256"  # 哈希算法
+      - key: TESTER_REGIST
+        value: "password4register"  # 即 Config.TESTER_REGIST
