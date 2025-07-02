@@ -4,7 +4,7 @@ services:
     runtime: python
     plan: free  # 明确指定免费计划
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: python app.py
     envVars:
       - key: MONGO_URI
         value: "mongodb+srv://connectionTest:1234@indoornavigation.3vebovy.mongodb.net/?retryWrites=true&w=majority&appName=IndoorNavigation"
