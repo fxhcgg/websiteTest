@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 from forms import LoginForm, SignupForm
 from config import Config
 from mongoDB import insert_tester, find_tester
+import os
 
 app = Flask(__name__)
 
