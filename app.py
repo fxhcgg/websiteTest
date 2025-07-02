@@ -43,5 +43,4 @@ def database():
     return render_template('database.html')
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # 读取 Render 提供的端口
-    app.run(host='0.0.0.0', port=port)
+    app.run()
